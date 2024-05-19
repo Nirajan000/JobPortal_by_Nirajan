@@ -1,0 +1,126 @@
+﻿@model JobPortal.Models.JobViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+    <style>
+        /* Styling the form container */
+form {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling form headings */
+h1, h4 {
+    color: #333;
+}
+
+/* Styling the form groups */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Styling labels */
+.control-label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Styling input fields */
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Styling select fields */
+select.form-control {
+    padding: 9px;
+    font-size: 14px;
+}
+
+/* Styling validation messages */
+.text-danger {
+    font-size: 12px;
+    color: #d9534f;
+}
+
+/* Styling the submit button */
+.btn-primary {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btn-primary:hover {
+    background-color: #4cae4c;
+    border-color: #398439;
+}
+
+/* Styling the 'Back to List' link */
+a.asp-action-index {
+    color: #5cb85c;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+a.asp-action-index:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+
+<h1>Edit</h1>
+
+<h4>Job</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrganizationName" class="control-label"></label>
+                <select asp-for="OrganizationId">
+                    <option value="0">--SELECT--</option>
+                    @foreach (var item in ViewBag.Organizations)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span asp-validation-for="OrganizationName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

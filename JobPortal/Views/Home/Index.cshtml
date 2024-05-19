@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .homepage-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #ffffff;
+            padding: 50px;
+            text-align: center;
+        }
+
+            .homepage-container h1 {
+                font-size: 3.5rem;
+                margin-bottom: 20px;
+            }
+
+            .homepage-container p {
+                font-size: 1.25rem;
+                margin-bottom: 30px;
+            }
+
+            .homepage-container .btn {
+                padding: 15px 30px;
+                font-size: 1.25rem;
+                color: #ffffff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+
+                .homepage-container .btn:hover {
+                    background-color: #0056b3;
+                }
+
+        footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            width: 100%;
+            border-top: 1px solid #dee2e6;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+            footer a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    text-decoration: underline;
+                }
+
+            footer .text-muted {
+                color: #6c757d !important;
+            }
+
+    </style>
+</head>
+
+<div class="homepage-container text-center">
+    <h1 class="display-4">Welcome to Our Better World Employment Services</h1>
+    <p class="lead">Join our job portal service and discover your next career opportunity.</p>
+    <a href="@Url.Action("Login", "User")" class="btn btn-primary btn-lg">Let's Start</a>
+</div>
